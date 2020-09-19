@@ -14,7 +14,7 @@
 
 ## Description
 
-After completing a 60 hours of on demand course, I decided to dig in and try my first ish projects with React.js, Node.js and MongoDB. you can watch my other project [here](https://github.com/amnon3234/Anna-Resume).
+After completing a 60 hours of on demand course, I decided to dig in and try my first ish projects with React.js, Node.js and MongoDB. you can watch my other project [here](https://github.com/amnon3234/Anna-Resume).<br/>
 In this project you can see my new dynamic resume application. <br/>
 Fronend built mainly with React.JS while the backend (api) built with Node.JS.
 
