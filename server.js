@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const jwt = require('./util/jwt.util');
 
 // import routes
 const experienceRouter = require ('./routes/experience.route');

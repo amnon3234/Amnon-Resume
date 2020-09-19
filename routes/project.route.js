@@ -2,6 +2,8 @@
 // import packages
 const express = require('express');
 let Model = require('./../models/project.model');
+const onlyAdmin = require('./../util/userPrivilege.util').onlyAdmin;
+const JWTAuthentication = require('./../util/jwt.util').JWTAuthentication;
 
 // router
 const router = express.Router();
@@ -16,8 +18,7 @@ router
             .catch( err => res.status(400).json(err));
     })
     
-    .post((req, res) => { // add one
-
+    .post(JWTAuthentication, onlyAdmin, (req, res) => { // add one
         new Model(req.body)
             .save()
             .then( () => res.json('Project added succesfuly'))
@@ -34,19 +35,19 @@ router
             .catch( err => res.status(400).json(err));
     })
     
-    .put((req, res) => { // update one (overwtire)
+    .put(JWTAuthentication, onlyAdmin, (req, res) => { // update one (overwtire)
         Model.update({ _id:req.params.id }, req.body, { overwrite: true })
             .then( () => res.json('Project overwritten succesfuly'))
             .catch( err => res.status(400).json(err));
     })
 
-    .patch((req, res) => { // update one spesific items
+    .patch(JWTAuthentication, onlyAdmin, (req, res) => { // update one spesific items
         Model.update({ _id:req.params.id }, { $set: req.body })
             .then( () => res.json('Project updated succesfuly'))
             .catch( err => res.status(400).json(err));
     })
     
-    .delete((req, res) => { // delete one 
+    .delete(JWTAuthentication, onlyAdmin, (req, res) => { // delete one 
         Model.findByIdAndDelete(req.params.id)
             .then(() => res.json('Project deleted succesfuly'))
             .catch( err => res.status(400).json(err));
