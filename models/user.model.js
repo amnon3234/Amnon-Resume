@@ -1,15 +1,15 @@
 // package imports
-import Mongoose from 'mongoose';
-import * as SchemaTypes from './../schemaTypes';
-import 'mongoose-type-email';
+const mongoose = require('mongoose');
+const schemaTypes = require('./../schemaTypes');
+require('mongoose-type-email');
 
 // model Schema
-const modelSchema = Mongoose.Schema(
+const modelSchema = mongoose.Schema(
     {
-        fullName:SchemaTypes.nameRequierd,
-        email: Mongoose.SchemaTypes.Email,
-        password: SchemaTypes.passwordRequierd,
-        userRole: SchemaTypes.userRole
+        fullName:schemaTypes.nameRequierd,
+        email: mongoose.SchemaTypes.Email,
+        password: schemaTypes.passwordRequierd,
+        userRole: schemaTypes.userRole
     },
     {
         timestamps:true // adding object creation time
@@ -17,7 +17,7 @@ const modelSchema = Mongoose.Schema(
 );
 
 // create model 
-const Model = Mongoose.Model('User', modelSchema)
+const Model = mongoose.model('User', modelSchema)
 
 // export model
-export default Model;
+module.exports = Model;

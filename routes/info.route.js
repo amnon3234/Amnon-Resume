@@ -1,6 +1,6 @@
 
 // import packages
-import express from 'express';
+const express = require('express');
 let Model = require('./../models/info.model');
 
 // router
@@ -47,4 +47,4 @@ router
     });
 
 // export router
-export default router;
+module.exports = router;

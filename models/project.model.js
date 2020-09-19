@@ -1,14 +1,14 @@
 // package imports
-import Mongoose from 'mongoose';
-import * as SchemaTypes from './../schemaTypes';
-import 'mongoose-type-url';
+const mongoose = require('mongoose');
+const schemaTypes = require('./../schemaTypes');
+require('mongoose-type-url');
 
 // model Schema
-const modelSchema = Mongoose.Schema(
+const modelSchema = mongoose.Schema(
     {
-        title:SchemaTypes.titleRequierd,
-        decription:SchemaTypes.decriptionRequired,
-        gitHubLink:Mongoose.SchemaTypes.Url
+        title:schemaTypes.titleRequierd,
+        decription:schemaTypes.decriptionRequired,
+        gitHubLink:mongoose.SchemaTypes.Url
     },
     {
         timestamps:true // adding object creation time
@@ -16,7 +16,7 @@ const modelSchema = Mongoose.Schema(
 );
 
 // create model 
-const Model = Mongoose.Model('Project', modelSchema)
+const Model = mongoose.model('Project', modelSchema)
 
 // export model
-export default Model;
+module.exports = Model;

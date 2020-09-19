@@ -1,12 +1,12 @@
 // package imports
-import Mongoose from 'mongoose';
-import * as SchemaTypes from '../schemaTypes';
+const mongoose = require('mongoose');
+const schemaTypes = require('./../schemaTypes');
 
 // model Schema
-const modelSchema = Mongoose.Schema(
+const modelSchema = mongoose.Schema(
     {
-        category: SchemaTypes.skillCategoryRequired,
-        skills: [SchemaTypes.skillRequired]
+        category: schemaTypes.skillCategoryRequired,
+        skills: [schemaTypes.skillRequired]
     },
     {
         timestamps:true // adding object creation time
@@ -14,7 +14,7 @@ const modelSchema = Mongoose.Schema(
 );
 
 // create model 
-const Model = Mongoose.Model('SkillCategorie', modelSchema)
+const Model = mongoose.model('SkillCategorie', modelSchema)
 
 // export model
-export default Model;
+module.exports = Model;

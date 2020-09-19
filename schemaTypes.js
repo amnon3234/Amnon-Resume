@@ -122,7 +122,7 @@ const passwordRequierd = {
 }
 
 // export types
-export {
+module.exports = {
     nameRequierd, phoneRequierd, addressRequierd,
     address, jobDecriptionRequierd, aboutRequired,
     companyNameRequired, dateStringRequired, dateString,

@@ -1,13 +1,13 @@
 // package imports
-import Mongoose from 'mongoose';
-import * as SchemaTypes from './../schemaTypes';
+const mongoose = require('mongoose');
+const schemaTypes = require('./../schemaTypes');
 
 // model Schema
-const modelSchema = Mongoose.Schema(
+const modelSchema = mongoose.Schema(
     {
-        name:SchemaTypes.nameRequierd,
-        title:SchemaTypes.titleRequierd,
-        content:SchemaTypes.contentRequired
+        name:schemaTypes.nameRequierd,
+        title:schemaTypes.titleRequierd,
+        content:schemaTypes.contentRequired
     },
     {
         timestamps:true // adding object creation time
@@ -15,7 +15,7 @@ const modelSchema = Mongoose.Schema(
 );
 
 // create model 
-const Model = Mongoose.Model('Note', modelSchema)
+const Model = mongoose.model('Note', modelSchema)
 
 // export model
-export default Model;
+module.exports = Model;
