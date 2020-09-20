@@ -44,7 +44,8 @@ const JWTAuthentication = expressJWT({
     secret: process.env.JWT_SECRET,
     algorithms: ['HS256'],
     issuer: 'api.amnonResume',
-    audience: 'client.amnonResume'
+    audience: 'client.amnonResume',
+    getToken: req => req.cookies.jwt
 });
 
 // export functions

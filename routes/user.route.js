@@ -2,7 +2,7 @@
 // import packages
 const express = require('express');
 const { encryptPassword, verifyPassword } = require('../util/password.util');
-const { onlyAdmin } = require('./../util/userPrivilege.util');
+const { onlyAdmin, attachUser } = require('./../util/userPrivilege.util');
 const { JWTAuthentication, createJWT, decodeJWT } = require('./../util/jwt.util');
 let Model = require('./../models/user.model');
 
@@ -32,9 +32,9 @@ router
             const userInforamtion = {fullName:fullName, email:email, role:role};
             
             // return user's data
+            res.cookie('jwt', jwt, { httpOnly: true });
             return res.json({
                 message: 'loged-in succesfully',
-                token:jwt,
                 information:userInforamtion,
                 expiredAt:expiredAt  
             });
@@ -84,10 +84,10 @@ router
             const expiredAt = decodeJWT(jwt).exp;
             
             // return user's data
+            res.cookie('jwt', jwt, { httpOnly: true });
             const userInforamtion = {fullName:fullName, email:email, role:'USER'};
             return res.json({
                 message: 'User created succesfully',
-                token:jwt,
                 information:userInforamtion,
                 expiredAt:expiredAt
             });

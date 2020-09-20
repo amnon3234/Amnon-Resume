@@ -2,6 +2,7 @@
 // import packages 
 require('dotenv').config();
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const jwt = require('./util/jwt.util');
@@ -22,6 +23,7 @@ DB_URL = process.env.DB_URL;
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser);
 app.use('/api/experience',experienceRouter);
 app.use('/api/info',infoRouter);
 app.use('/api/notes',noteRouter);
