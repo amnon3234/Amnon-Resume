@@ -5,7 +5,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const jwt = require('./util/jwt.util');
+const csurf = require('csurf');
+const csurfMiddleware = csurf({ cookie:true });
 
 // import routes
 const experienceRouter = require ('./routes/experience.route');
@@ -24,12 +25,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser);
-app.use('/api/experience',experienceRouter);
+app.use('/api/users',userRouter);
 app.use('/api/info',infoRouter);
+app.use(csurfMiddleware);
+app.use('/api/experience',experienceRouter);
 app.use('/api/notes',noteRouter);
 app.use('/api/projects',projectRouter);
 app.use('/api/skills',skillRouter);
-app.use('/api/users',userRouter);
 
 // mongoose connection
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -41,6 +43,11 @@ if (process.env.NODE_ENV === 'production') {
     app.use(static('client/build'));
     app.get('/*',(req, res) => res.redirect('/'));
 }else console.log('development mode');
+
+// get csrf token
+app.get('/api/csrf-token', (req, res) => {
+    res.json({ csrfToken: req.csrfToken() });
+});
 
 // server listen
 app.listen(PORT, () => console.log('Server is runing on port: ' + PORT));
