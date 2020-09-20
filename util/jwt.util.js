@@ -2,9 +2,11 @@
 // import packages 
 const JWT = require('jsonwebtoken');
 const expressJWT = require('express-jwt');
+const jwtDecoder = require('jwt-decode');
 
 /**
- * Assign jason web token to a given user for one hour
+ * Assign jason web token to a given user
+ * for one hour
  * 
  * @param {*} user 
  * @returns assigned JWT
@@ -24,6 +26,15 @@ const createJWT = user => {
     );
 };
 
+/**
+ * Function decode a jason web token to it's 
+ * payload.
+ * 
+ * @param {*} jwt a json web token
+ * @returns token payload
+ */
+const decodeJWT = jwt => jwtDecoder(jwt);
+
 // 
 /**
  * Middleware function.
@@ -31,6 +42,7 @@ const createJWT = user => {
  */
 const JWTAuthentication = expressJWT({
     secret: process.env.JWT_SECRET,
+    algorithms: ['HS256'],
     issuer: 'api.amnonResume',
     audience: 'client.amnonResume'
 });
@@ -38,5 +50,6 @@ const JWTAuthentication = expressJWT({
 // export functions
 module.exports = {
     createJWT,
+    decodeJWT,
     JWTAuthentication
 };

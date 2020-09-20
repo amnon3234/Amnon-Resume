@@ -11,8 +11,8 @@ const UserModel = require('./../models/user.model');
  * @returns encrypted password
  */
 const encryptPassword = password => {
-    return new Promise((resolve, rejected) => {
-        bcrypt.hash(password, process.env.SALT_ROUNDS, (err, hash) => 
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(password, Number(process.env.SALT_ROUNDS), (err, hash) => 
             err ? reject(err) : resolve(hash));
     });
 };

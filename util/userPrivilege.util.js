@@ -1,5 +1,10 @@
 
 
+const attachUser = (req, res, next) => {
+
+}
+
+
 /**
  * Middleware function.
  * Make sure that the user which making the request
@@ -18,5 +23,6 @@ const onlyAdmin = (req, res, next) => {
 };
 
 module.exports = {
-    onlyAdmin
+    onlyAdmin,
+    attachUser
 };
