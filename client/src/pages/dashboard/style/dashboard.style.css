@@ -1,0 +1,33 @@
+
+.content-header {
+    background-color: #222831;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    height: 8vh;
+    font-size: large;
+    text-align: right;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.topbar-item {
+    margin: 0 1rem;
+    color: #eeeeee;
+    cursor: pointer;
+}
+
+.topbar-item:hover {
+    color: #00adb5;
+}
+
+.topbar-item > i {
+    width: 0.5rem;
+}
+
+
+.content {
+    padding: 2rem;
+    width:100%;
+    height: 92vh;
+    background-color: #eeeeee;
+    overflow-y: scroll;
+}

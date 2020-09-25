@@ -1,0 +1,68 @@
+
+.sidebar-wrapper {
+    height: 100vh;
+    background-color: #222831;
+    color: #eeeeee;
+}
+
+.page-title {
+    padding: 1rem 1.2rem;
+    height: 8vh;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+}
+
+.page-title > h1 {
+    font-size: large;
+}
+
+.menu-wrapper {
+    margin-top: 1rem;
+}
+
+.menu-item-wrapper {
+    margin: 0.2rem auto;
+    padding: 0.5rem;
+    width:90%;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.menu-item-wrapper.active {
+    background-color: #00adb5;
+}
+
+.menu-item-wrapper:hover {
+    background-color: #00adb5;
+}
+
+.menu-item-wrapper > i {
+    width: 1rem;
+}
+
+.menu-item-wrapper > p {
+    display: inline;
+    font-size: large;
+    padding-left: 1rem;
+}
+
+.exit-button {
+    position: absolute;
+    padding: 0.5rem;
+    width: 90%;
+    left: 0.7rem;
+    bottom: 2rem;
+    background-color: #00adb5;
+    border: none;
+    text-align: left;
+}
+
+.exit-button:hover {
+    background-color: #222831;
+    border: none;
+}
+
+.exit-button > i {
+    padding-right: 1rem;
+}

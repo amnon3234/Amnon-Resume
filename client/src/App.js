@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import Dashboard from './pages/dashboard/dashboard.page';
 import './App.css';
 
 function App() {
   return (
     <div className="app-wrapper">
+      <Dashboard />
     </div>
   );
 }
