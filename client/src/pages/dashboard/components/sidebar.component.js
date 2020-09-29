@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import uniqid  from 'uniqid';
 import MenuItem from './menuItem.component';
 import { useLocation } from "react-router-dom";
@@ -32,7 +32,7 @@ function Sidebar() {
 
             {/* go back  */}
             <Button className='exit-button'>
-                <i class="fas fa-arrow-left"></i>
+                <i className="fas fa-arrow-left"></i>
                 
                 Exit Dashboard
             </Button>

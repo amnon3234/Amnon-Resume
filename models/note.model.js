@@ -5,8 +5,8 @@ const schemaTypes = require('./../schemaTypes');
 // model Schema
 const modelSchema = mongoose.Schema(
     {
-        name:schemaTypes.nameRequierd,
-        title:schemaTypes.titleRequierd,
+        name:schemaTypes.nameRequired,
+        title:schemaTypes.titleRequired,
         content:schemaTypes.contentRequired
     },
     {

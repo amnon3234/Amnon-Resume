@@ -1,9 +1,11 @@
 import React from 'react';
 
-function InfoPage(){
-    return (
-        <h1> InfoPage </h1>
+function Info(model) {
+    return(
+        <div>
+
+        </div>
     );
 }
 
-export default InfoPage;
+exports default Info;

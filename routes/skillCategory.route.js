@@ -21,11 +21,11 @@ router
     .post(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // add one
         new Model(req.body)
             .save()
-            .then( () => res.json('Skill category added succesfuly'))
+            .then( () => res.json('Skill category added successfully'))
             .catch( err => res.status(400).json(err));
     });
 
-// Target Spesific 
+// Target Specific 
 router
     .route('/:id')
     
@@ -35,21 +35,21 @@ router
             .catch( err => res.status(400).json(err));
     })
     
-    .put(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one (overwtire)
+    .put(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one (overwrite)
         Model.update({ _id:req.params.id }, req.body, { overwrite: true })
-            .then( () => res.json('Skill category overwritten succesfuly'))
+            .then( () => res.json('Skill category overwritten successfully'))
             .catch( err => res.status(400).json(err));
     })
 
-    .patch(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one spesific items
+    .patch(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one specific items
         Model.update({ _id:req.params.id }, { $set: req.body })
-            .then( () => res.json('Skill category updated succesfuly'))
+            .then( () => res.json('Skill category updated successfully'))
             .catch( err => res.status(400).json(err));
     })
     
     .delete(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // delete one 
         Model.findByIdAndDelete(req.params.id)
-            .then(() => res.json('Skill category deleted succesfuly'))
+            .then(() => res.json('Skill category deleted successfully'))
             .catch( err => res.status(400).json(err));
     });
 

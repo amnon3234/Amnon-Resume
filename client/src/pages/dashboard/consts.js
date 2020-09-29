@@ -1,5 +1,5 @@
 
-// dashboad sidebar items
+// dashboard sidebar items
 module.exports.menuItems = [
     {
         icon:'fas fa-user-tie',
@@ -51,3 +51,30 @@ module.exports.topBarItems = [
         route:''
     }
 ];
+
+// model templates
+module.exports.experienceTemplate = {
+    company:'',
+    jobDescription:'',
+    jobLocation:'',
+    fromYear:'',
+    toYear:'',
+    content:''
+}
+
+module.exports.noteTemplate = {
+    name:'',
+    title:'',
+    content:''
+}
+
+module.exports.projectsTemplate = {
+    title:'',
+    description:'',
+    gitHubLink:''
+}
+
+module.exports.userTemplate = {
+    fullName:'',
+    email:''
+}

@@ -27,6 +27,7 @@
     width:90%;
     border-radius: 5px;
     text-align: left;
+    cursor: pointer;
 }
 
 .menu-item-wrapper.active {
@@ -45,6 +46,7 @@
     display: inline;
     font-size: large;
     padding-left: 1rem;
+    cursor: pointer;
 }
 
 .exit-button {

@@ -6,8 +6,8 @@ require('mongoose-type-url');
 // model Schema
 const modelSchema = mongoose.Schema(
     {
-        title:schemaTypes.titleRequierd,
-        decription:schemaTypes.decriptionRequired,
+        title:schemaTypes.titleRequired,
+        description:schemaTypes.descriptionRequired,
         gitHubLink:mongoose.SchemaTypes.Url
     },
     {

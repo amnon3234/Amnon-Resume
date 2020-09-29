@@ -2,16 +2,40 @@
 // import packages
 const express = require('express');
 const { encryptPassword, verifyPassword } = require('../util/password.util');
-const { onlyAdmin, attachUser } = require('./../util/userPrivilege.util');
+const { onlyAdmin} = require('./../util/userPrivilege.util');
 const { JWTAuthentication, createJWT, decodeJWT } = require('./../util/jwt.util');
 let Model = require('./../models/user.model');
 
 // router
 const router = express.Router();
 
+// get all users
+router
+    .get('/' ,JWTAuthentication, onlyAdmin, (req, res) => { // get all
+        Model.find()
+            .then( users => {
+                let results = [];
+                users.map( item => {
+                    const fullName = item.fullName;
+                    const email = item.email;
+                    results.push({fullName,email})
+                });
+                res.json(results);
+            })
+            .catch( err => res.status(400).json(err));
+    });
+
+// delete Specific user
+router
+.delete('/:id', JWTAuthentication, onlyAdmin, (req, res) => { // delete one 
+    Model.findByIdAndDelete(req.params.id)
+        .then(() => res.json('User deleted successfully'))
+        .catch( err => res.status(400).json(err));
+});
+
 // authenticate a user
 router
-    .post('/signin', async (req, res) => { // get one
+    .post('/signin', async (req, res) => {
        try{
             
             // get data
@@ -28,14 +52,14 @@ router
             const user = await Model.findOne({ email }).lean();
             const jwt = createJWT(user);
             const expiredAt = decodeJWT(jwt).exp;
-            const { fullName, role } = user;
-            const userInforamtion = {fullName:fullName, email:email, role:role};
+            const { fullName, userRole } = user;
+            const userInformation = {fullName:fullName, email:email, role:userRole};
             
             // return user's data
             res.cookie('jwt', jwt, { httpOnly: true });
             return res.json({
-                message: 'loged-in succesfully',
-                information:userInforamtion,
+                message: 'logged-in successfully',
+                information:userInformation,
                 expiredAt:expiredAt  
             });
 
@@ -45,7 +69,7 @@ router
                 err:err
             });
        }
-    })
+    });
 
 // signup a user
 router
@@ -59,11 +83,11 @@ router
             // encrypt password
             const encryptedPassword = await encryptPassword(password);        
 
-            // check if the email allready existed for another user 
+            // check if the email already existed for another user 
             const isExisted = await Model.findOne({email: fixedEmail}).lean();
             if(isExisted) 
                 return res.status(400).json({
-                message: 'Email allready exists' 
+                message: 'Email already exists' 
             });
 
             // new user data
@@ -85,10 +109,10 @@ router
             
             // return user's data
             res.cookie('jwt', jwt, { httpOnly: true });
-            const userInforamtion = {fullName:fullName, email:email, role:'USER'};
+            const userInformation = {fullName:fullName, email:email, role:'USER'};
             return res.json({
-                message: 'User created succesfully',
-                information:userInforamtion,
+                message: 'User created successfully',
+                information:userInformation,
                 expiredAt:expiredAt
             });
 
@@ -98,14 +122,6 @@ router
                 err:err
             });
         } 
-    });
-
-// delete spesific user
-router
-    .delete('/:id', JWTAuthentication, onlyAdmin, (req, res) => { // delete one 
-        Model.findByIdAndDelete(req.params.id)
-            .then(() => res.json('User deleted succesfuly'))
-            .catch( err => res.status(400).json(err));
     });
 
 // export router

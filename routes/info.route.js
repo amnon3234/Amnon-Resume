@@ -21,11 +21,11 @@ router
     .post(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // add one
         new Model(req.body)
             .save()
-            .then( () => res.json('Info added succesfuly'))
+            .then( () => res.json('Info added successfully'))
             .catch( err => res.status(400).json(err));
     });
 
-// Target Spesific 
+// Target Specific 
 router
     .route('/:id')
     
@@ -37,13 +37,13 @@ router
     
     .put(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one (overwtire)
         Model.update({ _id:req.params.id }, req.body, { overwrite: true })
-            .then( () => res.json('Info overwritten succesfuly'))
+            .then( () => res.json('Info overwritten successfully'))
             .catch( err => res.status(400).json(err));
     })
 
-    .patch(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one spesific items
+    .patch(JWTAuthentication, attachUser, onlyAdmin, (req, res) => { // update one specific items
         Model.update({ _id:req.params.id }, { $set: req.body })
-            .then( () => res.json('Info updated succesfuly'))
+            .then( () => res.json('Info updated successfully'))
             .catch( err => res.status(400).json(err));
     });
 

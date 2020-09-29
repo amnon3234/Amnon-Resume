@@ -8,15 +8,15 @@ require('mongoose-type-url');
 // model Schema
 const modelSchema = mongoose.Schema(
     {
-        fullName:schemaTypes.nameRequierd,
-        phone:schemaTypes.phoneRequierd,
-        fullAddress:schemaTypes.addressRequierd,
+        fullName:schemaTypes.nameRequired,
+        phone:schemaTypes.phoneRequired,
+        fullAddress:schemaTypes.addressRequired,
         linkedinURL:mongoose.SchemaTypes.Url,
         facebookURL:mongoose.SchemaTypes.Url,
         instagramURL:mongoose.SchemaTypes.Url,
         gitHubURL:mongoose.SchemaTypes.Url,
         email: mongoose.SchemaTypes.Email,
-        jobDecription:schemaTypes.jobDecriptionRequierd,
+        jobDescription:schemaTypes.jobDescriptionRequired,
         about:schemaTypes.aboutRequired
     },
     {

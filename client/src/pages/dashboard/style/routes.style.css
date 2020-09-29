@@ -1,0 +1,62 @@
+
+.create-model-item, .graph {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #eeeeee;
+    color: #222831;
+    border-radius: 10px;
+}
+
+.model-table {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #eeeeee;
+    color: #222831;
+    border-radius: 10px;
+}
+
+.table {
+    color: #222831;
+    text-align: center;
+}
+
+.table > tbody > tr {
+    cursor: pointer;
+} 
+
+.table > tbody > tr:hover ,.active-row {
+    color: #eeeeee;
+    background-color: #393e46;
+}
+
+.trash-icon:hover {
+    color:red;
+}
+
+.add-item-form > input {
+    width: 46%;
+    padding: 0.5rem;
+    margin: 0 1rem 0.2rem 0;
+    border: none;
+    border-bottom: 1px solid #222831;
+    background-color: transparent;
+}
+
+.add-item-form > textarea {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #222831;
+    background-color: transparent;
+    resize: none;
+}
+
+.add-item-form > .form-button {
+    margin-top: 1rem;
+    background-color: #00adb5;
+    border: none;
+}
+
+.add-item-form > .form-button:hover {
+    background-color: #393e46;
+}

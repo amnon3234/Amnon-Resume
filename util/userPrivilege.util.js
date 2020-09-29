@@ -11,7 +11,6 @@ const { decodeJWT } = require('./jwt.util');
  * @param {*} next 
  */
 const attachUser = (req, res, next) => {
-    
     // get data
     const jwt = req.cookies.jwt;
     if(!jwt) return res.status(401)
@@ -38,7 +37,8 @@ const attachUser = (req, res, next) => {
  * @param {*} next 
  */
 const onlyAdmin = (req, res, next) => {
-    if(!req.user || req.user.userRole !== 'ADMIN')
+    console.log(req.user);
+    if(!req.user || req.user.role !== 'ADMIN')
         res.status(401).json({
             message:'You are not authorized to complete this request'
         }) 

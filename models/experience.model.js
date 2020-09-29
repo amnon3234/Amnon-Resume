@@ -7,7 +7,7 @@ const schemaTypes = require('./../schemaTypes');
 const modelSchema = mongoose.Schema(
     {
         company:schemaTypes.companyNameRequired,
-        jobDecription:schemaTypes.jobDecriptionRequierd,
+        jobDescription:schemaTypes.jobDescriptionRequired,
         jobLocation:schemaTypes.address,
         fromYear:schemaTypes.dateStringRequired,
         toYear:schemaTypes.dateString,

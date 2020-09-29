@@ -6,9 +6,9 @@ require('mongoose-type-email');
 // model Schema
 const modelSchema = mongoose.Schema(
     {
-        fullName:schemaTypes.nameRequierd,
+        fullName:schemaTypes.nameRequired,
         email: mongoose.SchemaTypes.Email,
-        password: schemaTypes.passwordRequierd,
+        password: schemaTypes.passwordRequired,
         userRole: schemaTypes.userRole
     },
     {

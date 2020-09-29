@@ -17,7 +17,7 @@ const createJWT = user => {
         {
             sub: user._id,
             email:user.email,
-            role: user.role,
+            role: user.userRole,
             iss: 'api.amnonResume',
             aud: 'client.amnonResume'
         }, // payload

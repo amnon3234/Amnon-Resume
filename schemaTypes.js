@@ -1,6 +1,6 @@
 
 //Schema types
-const nameRequierd = {
+const nameRequired = {
     type: String,
     required:true,
     trim:true,
@@ -8,7 +8,7 @@ const nameRequierd = {
     maxlength:20
 };
 
-const phoneRequierd = {
+const phoneRequired = {
     type: String,
     required:true,
     trim:true,
@@ -16,22 +16,22 @@ const phoneRequierd = {
     maxlength:14
 }
 
-const addressRequierd = {
+const addressRequired = {
     type: String,
     required:true,
     trim:true,
-    minlength:10,
+    minlength:5,
     maxlength:50
 }
 
 const address = {
     type: String,
     trim:true,
-    minlength:10,
+    minlength:5,
     maxlength:50
 }
 
-const jobDecriptionRequierd = {
+const jobDescriptionRequired = {
     type: String,
     required:true,
     trim:true,
@@ -64,7 +64,7 @@ const dateStringRequired = {
 const dateString = {
     type: String,
     trim:true,
-    defualt:'now',
+    default:'present',
     maxlength:40
 }
 
@@ -75,7 +75,7 @@ const contentRequired = {
     minlength:10
 }
 
-const titleRequierd = {
+const titleRequired = {
     type: String,
     required: true,
     trim:true,
@@ -83,7 +83,7 @@ const titleRequierd = {
     maxlength: 80
 }
 
-const decriptionRequired = {
+const descriptionRequired = {
     type: String,
     required:true,
     trim:true,
@@ -109,12 +109,12 @@ const skillCategoryRequired = {
 const userRole = {
     type: String,
     enum:['ADMIN','USER'],
-    defualt:'USER',
+    default:'USER',
     required:true,
     trim:true
 }
 
-const passwordRequierd = {
+const passwordRequired = {
     type: String,
     required:true,
     minlength:8,
@@ -123,10 +123,10 @@ const passwordRequierd = {
 
 // export types
 module.exports = {
-    nameRequierd, phoneRequierd, addressRequierd,
-    address, jobDecriptionRequierd, aboutRequired,
+    nameRequired, phoneRequired, addressRequired,
+    address, jobDescriptionRequired, aboutRequired,
     companyNameRequired, dateStringRequired, dateString,
-    contentRequired, titleRequierd, decriptionRequired,
+    contentRequired, titleRequired, descriptionRequired,
     skillRequired, skillCategoryRequired, userRole,
-    passwordRequierd
+    passwordRequired
 };
